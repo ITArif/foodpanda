@@ -96,7 +96,7 @@
               <div class="card">
                 <div class="card-header bg-gray-light">
                   <h3 class="card-title">VBR List</h3>
-                  <a class="float-right btn btn-success" href="add_VBR.html"> <i class="fas fa-plus-circle mr-2"></i>Create VBR </a>
+                  <a class="float-right btn btn-success" href="{{route('create.vbr')}}"> <i class="fas fa-plus-circle mr-2"></i>Create VBR </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

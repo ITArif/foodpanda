@@ -1,8 +1,8 @@
 @extends('master')
 
-@section('title', 'Admin Dashboard')
-@section('dashboard-title', 'Dashboard')
-@section('breadcrumb-title', 'Dashboard Information')
+@section('title', 'Vbr Dashboard')
+@section('dashboard-title', 'Vbr Dashboard')
+@section('breadcrumb-title', 'Vbr Dashboard Information')
 
 @section('stylesheet')
     <!-- <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -18,9 +18,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>147</h3>
 
-                <p>Total Customer</p>
+                <p>My Customers</p>
               </div>
               <div class="icon">
                 <i class="fas fa-user"></i>
@@ -35,7 +35,7 @@
               <div class="inner">
                 <h3>53</h3>
 
-                <p>Total VBR</p>
+                <p>Weeky Achivement</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -48,9 +48,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>4</h3>
 
-                <p>Offer</p>
+                <p>Todays Customer</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -63,9 +63,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>5000</h3>
+                <h3>66</h3>
 
-                <p>Total Coupon</p>
+                <p>Weekly Best</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -75,7 +75,14 @@
           </div>
           <!-- ./col -->
         </div>
-      </div><!-- /.container-fluid -->
+        <div class="row">
+          <div class="card">
+            <div class="card-header bg-gray-light">
+              <a href="{{route('create.customer')}}" class="float-right btn btn-success" style="margin-right: 1rem;"> <i class="fas fa-plus-circle mr-2"></i>Generate Coupon for Customer</a>
+            </div>
+        </div>
+      </div>
+    </div>
   </section>
 @endsection
 

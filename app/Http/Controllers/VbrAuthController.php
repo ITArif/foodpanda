@@ -8,23 +8,23 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuthController extends Controller
+class VbrAuthController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('guest:system_admin')->except('logout');
-    // }
+	public function __construct()
+    {
+        $this->middleware('guest:system_admin')->except('logout');
+    }
 
     private $errors= [];
 
     protected $redirectTo = '/dashboard';
 
-    public function showLoginForm()
+    public function vbrLoginForm()
     {
-        return view('auth.login');
+        return view('auth.vbr_login');
     }
 
-    public function login(Request $request){
+    public function vbrLogin(Request $request){
     	$request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -39,27 +39,20 @@ class AdminAuthController extends Controller
                      'email' =>$auth->email,
                      'role' =>$auth->role,
                 ]);
-                if ($auth->role =='admin') {
-                    return redirect('/dashboard');
-                }elseif ($auth->role =='vbr') {
+                if ($auth->role =='vbr') {
                     return redirect('/vbr/dashboard');
+                }elseif ($auth->role =='admin') {
+                    return redirect('/dashboard');
                 }else{
-                    return redirect('/');
+                    return redirect('/vbr/login');
                 }
-
         	}else{
-        		return redirect('/')
+        		return redirect('/vbr/login')
                 ->withInput($request->only('email'))
                 ->withErrors($this->errors);
         	}
         }else{
             return back()->with('failed','No Account For This Email');
         }
-    }
-
-    public function logout(Request $request)
-    {
-       $request->session()->flush();
-        return redirect('/');
     }
 }

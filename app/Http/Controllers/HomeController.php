@@ -16,4 +16,8 @@ class HomeController extends Controller
     public function index(){
     	return view('dashboard.dashboard');
     }
+
+    public function vbrDashboard(){
+    	return view('dashboard.vbr_dashboard');
+    }
 }

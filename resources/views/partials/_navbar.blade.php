@@ -29,11 +29,11 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-user"></i>
-        Arif
+        {{session('name')}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <span class="dropdown-item dropdown-header">
-        arif@gmail.com
+        {{session('email')}}
         </span>
         <div class="dropdown-divider"></div>
         <div class="dropdown-divider"></div>

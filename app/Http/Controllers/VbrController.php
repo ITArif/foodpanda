@@ -21,4 +21,8 @@ class VbrController extends Controller
     public function createCustomer(){
     	return view('vbr.create_customer');
     }
+
+    public function createVbr(){
+        return view('vbr.create_vbr');
+    }
 }

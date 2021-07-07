@@ -14,7 +14,11 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('partials._sidebar')
+   @if(session()->get('role') == 'admin')
+        @include('partials._sidebar')
+    @elseif (session()->get('role') == 'vbr')
+        @include('partials._vbr_sidebar')
+    @endif
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

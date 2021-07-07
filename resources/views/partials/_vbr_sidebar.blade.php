@@ -22,49 +22,14 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
-          <a href="{{url('dashboard')}}" class="nav-link">
+          <a href="{{url('vbr/dashboard')}}" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
-        <li class="nav-item menu-open">
-          <a href="{{route('customer.list')}}" class="nav-link">
-            <i class="nav-icon fas fa-user text-green"></i>
-            <p>Customer List</p>
-          </a>
-        </li>
         <li class="nav-item">
-          <a href="{{route('coupon.list')}}" class="nav-link">
-              <i class="nav-icon fas fa-list text-green"></i>
-            <p>Coupon</p>
-          </a>
-        </li>
-        <li class="nav-item menu-open">
-          <a href="{{route('vbr.list')}}" class="nav-link">
-              <i class="nav-icon fas fa-list text-green"></i>
-            <p> VBR List</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{route('report')}}" class="nav-link">
-              <i class="nav-icon fas fa-list text-green"></i>
-            <p> Reports</p>
-          </a>
-        </li>
-       <li class="nav-item">
-            <a href="#" class="nav-link" onclick="document.getElementById('admin-logout').submit()">
-              <i class="nav-icon fas fa-arrow-circle-right text-danger"></i>
-              <p>Logout</p>
-            </a>
-            <form id="admin-logout" action="{{route('admin.logout')}}" method="post" style="display: none">
-              @csrf
-           </form>
-        </li>
-
-        
-        <!-- <li class="nav-item">
           <a href="{{route('mycustomer')}}" class="nav-link">
               <i class="nav-icon fas fa-user text-green"></i>
             <p>My Customers</p>
@@ -75,8 +40,16 @@
               <i class="nav-icon fas fa-list text-green"></i>
             <p>Generate Coupon</p>
           </a>
-        </li> -->
-        
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link" onclick="document.getElementById('admin-logout').submit()">
+              <i class="nav-icon fas fa-arrow-circle-right text-danger"></i>
+              <p>Logout</p>
+            </a>
+            <form id="admin-logout" action="{{route('admin.logout')}}" method="post" style="display: none">
+              @csrf
+           </form>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

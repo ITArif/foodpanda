@@ -22,12 +22,12 @@
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="vbr_login.html" class="h1"><b>Admin</b>Login</a>
+      <a href="vbr_login.html" class="h1"><b>VBR</b>Login</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
       @include('partials._message')
-      <form action="{{route('admin.login')}}" method="post">
+      <form action="{{route('vbr.login')}}" method="post">
         @csrf
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
@@ -63,8 +63,8 @@
       </form>
 
       <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="{{url('vbr/login')}}" class="btn btn-block btn-success">
-          Sign in with Vbr
+        <a href="{{url('/')}}" class="btn btn-block btn-success">
+          Sign in with Admin
         </a>
       </div>
       <!-- /.social-auth-links -->
