@@ -34,14 +34,15 @@ Route::middleware('admin')->group(function(){
 });
 
 ///
-Route::get('/vbr/login','VbrAuthController@vbrLoginForm');
-Route::post('/vbr-login','VbrAuthController@vbrLogin')->name('vbr.login');
+// Route::get('/vbr/login','VbrAuthController@vbrLoginForm');
+// Route::post('/vbr-login','VbrAuthController@vbrLogin')->name('vbr.login');
 
 Route::middleware('vbr')->group(function(){
 	Route::get('/vbr/dashboard','HomeController@vbrDashboard');
 	Route::get('/my/customer','VbrController@myCustomer')->name('mycustomer');
     route::get('/generate/coupon','vbrcontroller@coupongenerate')->name('coupon.generate');
-    route::get('/create/customer','vbrcontroller@createcustomer')->name('create.customer');
+    route::get('/create/customer','vbrcontroller@createCustomer')->name('create.customer');
+    Route::post('/add/customer','vbrcontroller@addCustomer')->name('add.customer');
 });
 
 

@@ -123,85 +123,29 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Location</th>
                         <th>Gift Status</th>
-                        <th>DOB</th>
+                        <th>Coupon</th>
                         <th>Entry Date</th>
                       </tr>
                     </thead>
-                    <tbody>
-
+                     <tbody>
+                      <?php $i=0; ?>
+                      @foreach($customers as $customer)
                       <tr>
-                        <td>1</td>
-                        <td> Imran</td>
-                        <td>01711050777</td>
-                        <td> 1</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 June 2021</td>
-                        <td> 14 June 2021 03:32 PM</td>
+                        <td>{{$i++}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->mobile}}</td>
+                        @if ($customer->status==1)
+                        <td><button class="btn btn-success btn-xs">Gift Taken</button></td>
+                        @else
+                        <td><button class="btn btn-danger btn-xs">Gift Pending</button></td>
+                        @endif
+                        <td>{{$customer->coupon_code}} </td>
+                        <td>{{$customer->entry_date}} </td>
                       </tr>
-
-                      <tr>
-                        <td>2</td>
-                        <td> Imran</td>
-                        <td>01782229997</td>
-                        <td> 1</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>22 June 2021</td>
-                        <td> 14 June 2021 03:30 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>3</td>
-                        <td> Suborna</td>
-                        <td>01865444522</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 June 2021</td>
-                        <td> 01 June 2021 11:22 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>4</td>
-                        <td> Lisa</td>
-                        <td>01913932363</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>26 May 1994</td>
-                        <td> 14 June 2021 03:32 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>5</td>
-                        <td> Laboni</td>
-                        <td>01313849254</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 February 1998</td>
-                        <td> 01 June 2021 11:19 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>6</td>
-                        <td> Rita</td>
-                        <td>01864932479</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-success">Gift Taken</span> </td>
-                        <td>23 September 2001</td>
-                        <td> 01 June 2021 11:17 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>7</td>
-                        <td>Keya</td>
-                        <td>01792643266</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-success">Gift Taken</span> </td>
-                        <td>18 May 2021</td>
-                        <td> 30 May 2021 07:13 PM</td>
-                      </tr>
-
-                  </tbody></table>
+                      @endforeach
+                   </tbody>
+                  </table>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -213,6 +157,15 @@
 @endsection
 
 @section('custom_script')
-
-
+<script>
+      $(document).ready(function() {
+    $('#example2').DataTable( {
+        "info": true,
+          "autoWidth": false,
+          scrollX:'50vh', 
+          scrollY:'50vh',
+        scrollCollapse: true,
+    } );
+} );
+</script>
 @endsection

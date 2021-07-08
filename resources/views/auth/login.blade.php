@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Log in</title>
+  <title>Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,7 +22,7 @@
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="vbr_login.html" class="h1"><b>Admin</b>Login</a>
+      <a href="vbr_login.html" class="h1"><b>Login</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -61,13 +61,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="{{url('vbr/login')}}" class="btn btn-block btn-success">
-          Sign in with Vbr
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
 
     </div>
     <!-- /.card-body -->

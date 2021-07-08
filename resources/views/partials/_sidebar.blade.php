@@ -2,7 +2,7 @@
   <!-- Brand Logo -->
   <a href="admin_dashboard.html" class="brand-link">
     <img src="{{asset('logo/food_panda_logo.jpg')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Food Panda</span>
+    <span class="brand-text font-weight-light"> &nbsp; VBR</span>
   </a>
   <!-- Sidebar -->
   <div class="sidebar">
