@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Admin;
+use Illuminate\Support\Facades\Session;
 
 class VbrController extends Controller
 {
@@ -38,15 +40,17 @@ class VbrController extends Controller
                 $coupon_code .= $chars[mt_rand(0, strlen($chars)-1)];
             }
 
+            $auth = session('id');
+
              $customer=new Customer;
              $customer->name=$request->name;
+             $customer->vbr_id=$auth;
              $customer->email=$request->email;
              $customer->mobile=$request->mobile;
              $customer->date_of_birth=$request->date_of_birth;
              $customer->location=$request->location;
-             $customer->entry_date=$request->entry_date;
              $customer->coupon_code=$coupon_code;
-             $customer->status=$request->status;
+             $customer->status=0;
              
              $customer->save();
              return redirect()->back()->with('success','Customer Created Successfully!');

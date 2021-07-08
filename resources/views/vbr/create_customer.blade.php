@@ -85,25 +85,6 @@
                             @endif
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Date</label>
-                            <input type="date" name="entry_date" value="{{old('entry_date')}}" class="form-control" placeholder="Enter Location">
-                            @if($errors->has('entry_date'))
-                              <span class="text-danger">{{ $errors->first('entry_date') }}</span>
-                            @endif
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Satus</label>
-                              <select class="form-control select2bs4" name="status" id="status" style="width: 100%;">
-                                <option value="">----Select Status----</option>
-                                <option value="0">Gift Pending </option>
-                                <option value="1">Gift Taken </option>
-                              </select>  
-                          </div>
-                      </div>
                     </div>
                     <div class="card-footer">
                       <button data-toggle="modal" data-target="#exampleModalCenter" type="submit" class="btn btn-primary float-right">Submit</button>

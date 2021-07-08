@@ -1,8 +1,8 @@
 @extends('master')
 
-@section('title', 'Coupon Generate')
-@section('dashboard-title', 'Coupon Generate')
-@section('breadcrumb-title', 'Coupon Generate')
+@section('title', 'Customer Create')
+@section('dashboard-title', 'Customer Create')
+@section('breadcrumb-title', 'Customer Create')
 
 @section('stylesheet')
     <!-- <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -11,174 +11,119 @@
 
 @section('container')
 <section class="content">
-      <div class="container-fluid">
-        <div class="card card-secondary">
-          <div class="card-header">
-            <h3 class="card-title">Filter</h3>
-          </div>
-
-          <div class="card-body">
-            <form role="form" action="#" method="get">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>&nbsp;&nbsp; Coupon Code</label>
-                    <div class="col-md-12 col-sm-12">
-                      <select required="" class="form-control">
-                        <option value="">----select Coupon Code----</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                        <option value="">BSH@KSS0171</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>&nbsp;&nbsp; Status</label>
-                    <div class="col-md-12 col-sm-12">
-                      <select required="" class="form-control">
-                        <option value="">----select location----</option>
-                        <option value="">Used</option>
-                        <option value="">Not Used</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>&nbsp;&nbsp; Assigned</label>
-                    <div class="col-md-12 col-sm-12">
-                      <select required="" class="form-control">
-                        <option value="">----select Assigned----</option>
-                        <option value="">Imran</option>
-                        <option value="">Jui</option>
-                        <option value="">Hasan</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>&nbsp;&nbsp; Date</label>
-                    <div class="col-md-12 col-sm-12">
-                      <input type="date" required="" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
-
-          <div class="card-footer">
-            <a href=""><button type="submit" id="generate" class="btn btn-success">Generate</button></a>
-          </div>
-
-
-        </div>
-
-        <div class="row">
+        <div class="container-fluid">
+          <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header bg-gray-light">
-                  <h3 class="card-title">All Coupons</h3>
+                  <h3 class="card-title">Customer Create</h3>
+                  <a href="{{route('mycustomer')}}" class="float-right btn btn-success" style="margin-right: 1rem;"> <i class="fas fa-list mr-2"></i> Customer List</a>
                 </div>
-                <!-- /.card-header -->
+                <div class="col-md-8 offset-2 mt-2">
+                  @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block text-center">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <strong class="text-center">{{ $message }}</strong>
+                    </div>
+                  @endif
 
-                <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Coupon Code</th>
-                      <th>Status</th>
-                      <th>Date</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr>
-                        <td>1</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-danger">Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>BSH@KSS0321</td>
-                        <td> <span class="badge badge-danger">Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>BSH@KSS0173</td>
-                        <td> <span class="badge badge-danger">Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-danger">Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-success">Not Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-success">Not Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-success">Not Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-success">Not Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-success">Not Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>BSH@KSS0171</td>
-                        <td> <span class="badge badge-danger">Used</span> </td>
-                        <td> 14 June 2021 03:32 PM</td>
-                    </tr>
-                
-                  </tbody></table>
+                  @if ($message = Session::get('danger'))
+                    <div class="alert alert-danger alert-block text-center">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <strong>{{ $message }}</strong>
+                    </div>
+                  @endif
                 </div>
-                <!-- /.card-body -->
-              </div>
+
+                <form action="{{route('add.customer')}}" method="POST">
+                  @csrf
+                  <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Name<span style="color: red;" class="required">*</span></label>
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter name">
+                            @if($errors->has('name'))
+                              <span class="text-danger">{{ $errors->first('name') }}</span>
+                            @endif
+                          </div>
+                        </div>
+          
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Email<span style="color: red;" class="required">*</span></label>
+                            <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Enter email">
+                            @if($errors->has('email'))
+                              <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @endif
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Mobile<span style="color: red;" class="required">*</span></label>
+                            <input type="number" name="mobile" value="{{old('mobile')}}" class="form-control" placeholder="Enter mobile">
+                            @if($errors->has('mobile'))
+                              <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                            @endif
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Date Of Birth</label>
+                            <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" value="{{old('date_of_birth')}}" placeholder="Enter Date Of Birth">
+                            @if($errors->has('date_of_birth'))
+                              <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
+                            @endif
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" name="location" value="{{old('location')}}" class="form-control" placeholder="Enter Location">
+                            @if($errors->has('location'))
+                              <span class="text-danger">{{ $errors->first('location') }}</span>
+                            @endif
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <button data-toggle="modal" data-target="#exampleModalCenter" type="submit" class="btn btn-primary float-right">Submit</button>
+                      </div>
+                </div>
+              </form>
             </div>
+
+             <!-- modal -->
+            <!--  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <h3>Customer registered successfully!</h3>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!-- modal -->
+
+
             <!-- /.col -->
           </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        </div><!-- /.container-fluid -->
+      </section>
 @endsection
 
 @section('custom_script')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+ 
+<script>
+    $(function() {
+       $('.select2bs4').select2({
+          theme: 'bootstrap4'
+        });
+    });
+</script>
 
 @endsection

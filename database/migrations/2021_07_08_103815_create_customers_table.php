@@ -21,7 +21,6 @@ class CreateCustomersTable extends Migration
             $table->string('location');
             $table->integer('status',false,false);
             $table->string('date_of_birth');
-            $table->date('entry_date');
             $table->string('coupon_code');
             $table->timestamps();
         });

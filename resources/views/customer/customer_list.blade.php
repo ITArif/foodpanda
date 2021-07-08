@@ -121,135 +121,31 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Location</th>
-                        <th>Gift Status</th>
-                        <th>DOB</th>
+                        <th>VBR Name</th>
+                        <th>Coupon Status</th>
+                        <th>Coupon</th>
                         <th>Entry Date</th>
                       </tr>
                     </thead>
                     <tbody>
-
+                      <?php $i=1; ?>
+                     @foreach($customerData as $custdata)
                       <tr>
-                        <td>1</td>
-                        <td> Imran</td>
-                        <td>01711050777</td>
-                        <td> 1</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 June 2021</td>
-                        <td> 14 June 2021 03:32 PM</td>
+                        <td>{{$i++}}</td>
+                        <td>{{$custdata->name}}</td>
+                        <td>{{$custdata->mobile}}</td>
+                        <td>{{$custdata->admin_name}}</td>
+                        @if ($custdata->status==1)
+                        <td><button class="btn btn-success btn-xs">Gift Taken</button></td>
+                        @else
+                        <td><button class="btn btn-danger btn-xs">Gift Pending</button></td>
+                        @endif
+                        <td>{{$custdata->coupon_code}} </td>
+                        <td>{{$custdata->created_at}} </td>
                       </tr>
-
-                      <tr>
-                        <td>2</td>
-                        <td> Imran</td>
-                        <td>01782229997</td>
-                        <td> 1</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>22 June 2021</td>
-                        <td> 14 June 2021 03:30 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>3</td>
-                        <td> Suborna</td>
-                        <td>01865444522</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 June 2021</td>
-                        <td> 01 June 2021 11:22 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>4</td>
-                        <td> Lisa</td>
-                        <td>01913932363</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>26 May 1994</td>
-                        <td> 14 June 2021 03:32 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>5</td>
-                        <td> Laboni</td>
-                        <td>01313849254</td>
-                        <td> 2</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>23 February 1998</td>
-                        <td> 01 June 2021 11:19 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>6</td>
-                        <td> Rita</td>
-                        <td>01864932479</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-success">Gift Taken</span> </td>
-                        <td>23 September 2001</td>
-                        <td> 01 June 2021 11:17 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>7</td>
-                        <td>Keya</td>
-                        <td>01792643266</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-success">Gift Taken</span> </td>
-                        <td>18 May 2021</td>
-                        <td> 30 May 2021 07:13 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>8</td>
-                        <td> Mila</td>
-                        <td>01969250588</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>11 May 2021</td>
-                        <td> 30 June 2021 07:12 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>9</td>
-                        <td> Lima</td>
-                        <td>01715776705</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>05 May 2021</td>
-                        <td> 30 May 2021 0701 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>10</td>
-                        <td> Maya</td>
-                        <td>01984899741</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>20 May 2021</td>
-                        <td> 30 May 2021 07:00 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>11</td>
-                        <td> Morjina</td>
-                        <td>01774710080</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>13 May 2021</td>
-                        <td> 14 June 2021 06:49 PM</td>
-                      </tr>
-
-                      <tr>
-                        <td>12</td>
-                        <td> Morjina</td>
-                        <td>01918696228</td>
-                        <td> 3</td>
-                        <td> <span class="badge badge-danger">Gift Pending</span> </td>
-                        <td>19 May 2021</td>
-                        <td> 30 May 2021 05:03 PM</td>
-                      </tr>
-
-                  </tbody></table>
+                      @endforeach
+                  </tbody>
+                </table>
                 </div>
                 <!-- /.card-body -->
               </div>

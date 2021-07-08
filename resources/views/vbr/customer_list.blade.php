@@ -124,12 +124,11 @@
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Gift Status</th>
-                        <th>Coupon</th>
                         <th>Entry Date</th>
                       </tr>
                     </thead>
                      <tbody>
-                      <?php $i=0; ?>
+                      <?php $i=1; ?>
                       @foreach($customers as $customer)
                       <tr>
                         <td>{{$i++}}</td>
@@ -140,8 +139,7 @@
                         @else
                         <td><button class="btn btn-danger btn-xs">Gift Pending</button></td>
                         @endif
-                        <td>{{$customer->coupon_code}} </td>
-                        <td>{{$customer->entry_date}} </td>
+                        <td>{{$customer->created_at}} </td>
                       </tr>
                       @endforeach
                    </tbody>
