@@ -21,34 +21,54 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="{{url('dashboard')}}" class="nav-link">
+        <li class="nav-item">
+          <a href="{{url('dashboard')}}" class="nav-link {{ request()->is('dashboard') ? 'active' :''}}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
-        <li class="nav-item menu-open">
-          <a href="{{route('customer.list')}}" class="nav-link">
+        @if(Session::get('page')=="customerList")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
+        <li class="nav-item">
+          <a href="{{route('customer.list')}}" class="nav-link {{$active}}">
             <i class="nav-icon fas fa-user text-green"></i>
             <p>Customer List</p>
           </a>
         </li>
+         @if(Session::get('page')=="couponList")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
         <li class="nav-item">
-          <a href="{{route('coupon.list')}}" class="nav-link">
+          <a href="{{route('coupon.list')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-list text-green"></i>
             <p>Coupon</p>
           </a>
         </li>
-        <li class="nav-item menu-open">
-          <a href="{{route('vbr.list')}}" class="nav-link">
+        @if(Session::get('page')=="vbrList")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
+        <li class="nav-item">
+          <a href="{{route('vbr.list')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-list text-green"></i>
             <p> VBR List</p>
           </a>
         </li>
+        @if(Session::get('page')=="report")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
         <li class="nav-item">
-          <a href="{{route('report')}}" class="nav-link">
+          <a href="{{route('report')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-list text-green"></i>
             <p> Reports</p>
           </a>

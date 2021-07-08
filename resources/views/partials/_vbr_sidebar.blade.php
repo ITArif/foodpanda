@@ -21,22 +21,32 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="{{url('vbr/dashboard')}}" class="nav-link">
+        <li class="nav-item">
+          <a href="{{url('vbr/dashboard')}}" class="nav-link {{ request()->is('vbr/dashboard') ? 'active' :''}}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
+        @if(Session::get('page')=="mycustomer")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
         <li class="nav-item">
-          <a href="{{route('mycustomer')}}" class="nav-link">
+          <a href="{{route('mycustomer')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-user text-green"></i>
             <p>My Customers</p>
           </a>
         </li>
+        @if(Session::get('page')=="couponGenerate")
+            <?php $active="active"; ?>
+          @else
+            <?php $active=""; ?>
+          @endif
         <li class="nav-item">
-          <a href="{{route('coupon.generate')}}" class="nav-link">
+          <a href="{{route('coupon.generate')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-list text-green"></i>
             <p>Generate Coupon</p>
           </a>

@@ -11,18 +11,21 @@ use Illuminate\Support\Facades\Hash;
 class VbrController extends Controller
 {
     public function vbrList(){
+         Session::put('page','vbrList');
         $vbrData=Admin::where('role','vbr')->get();
         //dd($vbrData);
     	return view('vbr.vbe_list')->with(compact('vbrData'));
     }
 
     public function myCustomer(){
+        Session::put('page','mycustomer');
         $customers=Customer::all();
         //dd($customers);
     	return view('vbr.customer_list')->with(compact('customers'));
     }
 
     public function couponGenerate(){
+        Session::put('page','couponGenerate');
     	return view('vbr.coupon_generate');
     }
 
@@ -69,6 +72,7 @@ class VbrController extends Controller
                     $status=0;
                 }
                 Admin::where('id',$data['vbr_id'])->update(['status'=>$status]);
+                //dd($admin);
                 return response()->json(['status'=>$status,'vbr_id'=>$data['vbr_id']]);
          }
     }
