@@ -123,7 +123,6 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Gift Status</th>
                         <th>Entry Date</th>
                       </tr>
                     </thead>
@@ -134,11 +133,6 @@
                         <td>{{$i++}}</td>
                         <td>{{$customer->name}}</td>
                         <td>{{$customer->mobile}}</td>
-                        @if ($customer->status==1)
-                        <td><button class="btn btn-success btn-xs">Gift Taken</button></td>
-                        @else
-                        <td><button class="btn btn-danger btn-xs">Gift Pending</button></td>
-                        @endif
                         <td>{{$customer->created_at}} </td>
                       </tr>
                       @endforeach

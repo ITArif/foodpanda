@@ -28,7 +28,12 @@ Route::middleware('admin')->group(function(){
     route::get('/coupon','Couponcontroller@couponlist')->name('coupon.list');
     route::get('/assign/coupon','Couponcontroller@assigncoupon')->name('assign.coupon');
     route::get('/vbr/list','Vbrcontroller@vbrlist')->name('vbr.list');
-    route::post('/vbr/update-status','Vbrcontroller@updateVbrStatus')->name('update.vbrStaus');
+    //route::post('/vbr/update-status','Vbrcontroller@updateVbrStatus')->name('update.vbrStaus');
+    //vbr Delete & Approved & Inapproved
+    Route::post('/delete/all/vbrs','Vbrcontroller@deleteAll');
+    Route::post('/activate/all/vbrs','Vbrcontroller@activateAll');
+    Route::post('/deactivate/all/vbrs','Vbrcontroller@deactivateAll');
+
     route::get('/create/vbr','Vbrcontroller@createVbr')->name('create.vbr');
     route::post('/add/vbr','Vbrcontroller@addVbr')->name('add.vbr');
     Route::get('/report','ReportController@report')->name('report');

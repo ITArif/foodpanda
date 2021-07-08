@@ -62,20 +62,41 @@ class VbrController extends Controller
              return redirect()->back()->with('success','Customer Created Successfully!');
     }
 
-    public function updateVbrStatus(Request $request){
-         if ($request->ajax()) {
-                $data=$request->all();
-                //echo "<pre>"; print_r($data);die();
-                if ($data['status']=="Approved") {
-                    $status=1;
-                }else{
-                    $status=0;
-                }
-                Admin::where('id',$data['vbr_id'])->update(['status'=>$status]);
-                //dd($admin);
-                return response()->json(['status'=>$status,'vbr_id'=>$data['vbr_id']]);
-         }
+    public function deleteAll(Request $request){
+        $ids = $request->vbrs_ids;
+        foreach ($ids as $id){
+            $admin = Admin::find($id);
+            if ($admin){
+                $admin->delete();
+            }
+        }
+        return response()->json('success',201);
     }
+
+    public function activateAll(Request $request){
+        $ids = $request->vbrs_ids;
+        foreach ($ids as $id){
+            $admin = Admin::find($id);
+            if ($admin){
+                $admin->status=1;
+                $admin->save();
+            }
+        }
+        return response()->json('success',201);
+    }
+
+    public function deactivateAll(Request $request){
+        $ids = $request->vbrs_ids;
+        foreach ($ids as $id){
+            $admin = Admin::find($id);
+            if ($admin){
+                $admin->status=0;
+                $admin->save();
+            }
+        }
+        return response()->json('success',201);
+    }
+
 
     public function createVbr(){
         return view('vbr.create_vbr');
