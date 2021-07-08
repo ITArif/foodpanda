@@ -111,47 +111,24 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                      <?php $i=1; ?>
+                    @foreach($vbrData as $vbrData)
                     <tr>
-                        <td>1</td>
-                        <td> Imran</td>
-                        <td>imran@gmail.com</td>
-                        <td>01711050777</td>
-                        <td><i class="fas fa-plus-circle mr-2"></i> Active</td>
-                      </tr>
-
-                      <tr>
-                        <td>2</td>
-                        <td> Lisa</td>
-                        <td>lisa@gmail.com</td>
-                        <td>01715650721</td>
-                        <td><i class="fas fa-plus-circle mr-2"></i> Active</td>
-                      </tr>
-
-                      <tr>
-                        <td>3</td>
-                        <td> Lima</td>
-                        <td>lima@gmail.com</td>
-                        <td>01915650721</td>
-                        <td><i class="fas fa-plus-circle mr-2"></i> Active</td>
-                      </tr>
-
-                      <tr>
-                        <td>4</td>
-                        <td> Morjina</td>
-                        <td>morjina@gmail.com</td>
-                        <td>01815650245</td>
-                        <td><i class="fas fa-plus-circle mr-2"></i> Active</td>
-                      </tr>
-
-                      <tr>
-                        <td>5</td>
-                        <td> Raihan</td>
-                        <td>raihan@gmail.com</td>
-                        <td>01515650854</td>
-                        <td><i class="fas fa-plus-circle mr-2"></i> Active</td>
-                      </tr>
-                  </tbody></table>
+                      <td>{{$i++}}</td>
+                      <td>{{$vbrData->name}}</td>
+                      <td>{{$vbrData->email}}</td>
+                      <td>{{$vbrData->mobile}}</td>
+                      <td>
+                        @if ($vbrData->status==1)
+                        <a class="updateVbrStatus" id="vbr-{{$vbrData->id}}" vbr_id="{{$vbrData->id}}" href="javascript:void(0)">Approved</a>
+                        @else
+                        <a class="updateVbrStatus" id="vbr-{{$vbrData->id}}" vbr_id="{{$vbrData->id}}" href="javascript:void(0)">Not Approved</a>
+                        @endif
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -163,6 +140,28 @@
 @endsection
 
 @section('custom_script')
-
-
+<script>
+//   $(document).ready(function() {
+   
+// } );
+ $(".updateVbrStatus").click(function(){
+    var status=$(this).text();
+    var vbr_id=$(this).attr("vbr_id");
+    $.ajax({
+       type:'post',
+       url:'/vbr/update-status',
+       data:{status:status,vbr_id:vbr_id},
+       success:function(resp){
+          if (resp['status']==1) {
+            
+              $("#vbr-"+vbr_id).html("<a class='updateVbrStatus' href='javascript:void(0)'>Approved</a>");
+          }else if (resp['status']==0) {
+              $("#vbr-"+vbr_id).html("<a class='updateVbrStatus' href='javascript:void(0)'>Not Approved</a>");
+          }
+       },error:function(){
+        alert("Error");
+       }
+    });
+ });
+</script>
 @endsection

@@ -28,7 +28,9 @@ Route::middleware('admin')->group(function(){
     route::get('/coupon','couponcontroller@couponlist')->name('coupon.list');
     route::get('/assign/coupon','couponcontroller@assigncoupon')->name('assign.coupon');
     route::get('/vbr/list','vbrcontroller@vbrlist')->name('vbr.list');
+    route::post('/vbr/update-status','vbrcontroller@updateVbrStatus')->name('update.vbrStaus');
     route::get('/create/vbr','vbrcontroller@createVbr')->name('create.vbr');
+    route::post('/add/vbr','vbrcontroller@addVbr')->name('add.vbr');
     Route::get('/report','ReportController@report')->name('report');
     route::get('/vbr/report','reportcontroller@vbrreport')->name('vbr.report');
 });
